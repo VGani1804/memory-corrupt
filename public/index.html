@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>MEMORY_CORRUPT :: Terminal</title>
+    <style>
+        body {
+            background-color: #030d03;
+            color: #00ff66;
+            font-family: "Courier New", Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        /* Hiệu ứng sọc CRT scanlines */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 99999;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            border: 1px solid #00ff66;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
+        }
+        .header {
+            border-bottom: 1px dashed #00ff66;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .tabs {
+            margin-bottom: 15px;
+        }
+        .tab-btn {
+            background: transparent;
+            color: #00ff66;
+            border: 1px solid #00ff66;
+            padding: 5px 15px;
+            cursor: pointer;
+            font-family: inherit;
+            margin-right: 10px;
+        }
+        .tab-btn.active {
+            background: #00ff66;
+            color: #030d03;
+            font-weight: bold;
+        }
+        .screen-area {
+            min-height: 350px;
+            max-height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            line-height: 1.5;
+            font-size: 14px;
+            margin-bottom: 15px;
+            border: 1px solid #005522;
+            padding: 10px;
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+        }
+        .prompt {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            background: transparent;
+            border: none;
+            color: #00ff66;
+            font-family: inherit;
+            font-size: 16px;
+            flex-grow: 1;
+            outline: none;
+        }
+        .stats-bar {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #00aa44;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        SYSTEM_CORE v4.0.4 :: MEMORY_CORRUPT<br>
+        BỆNH NHÂN SỐ: #73 | TRẠNG THÁI: KẾT NỐI BẢO MẬT
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab(1)">[1] DOSSIER_VIEWER (Hồ Sơ)</button>
+        <button class="tab-btn tab-btn-dialogue" onclick="switchTab(2)">[2] SYSTEM_DIALOGUE (Đấu Trí)</button>
+    </div>
+
+    <div id="screen-dossier" class="screen-area">Đang tải hồ sơ vụ án từ phân vùng bộ nhớ...</div>
+    <div id="screen-dialogue" class="screen-area" style="display: none;">Đang thiết lập kết nối thẩm vấn...</div>
+
+    <div class="input-group" id="input-container" style="display: none;">
+        <span class="prompt">USER_INPUT&gt;</span>
+        <input type="text" id="command-input" placeholder="Gõ câu trả lời hoặc lệnh (gõ 'help')..." autofocus autocomplete="off">
+    </div>
+
+    <div class="stats-bar" id="stats-display">
+        SANITY: [██████████] 100% | VỤ ÁN: Đang tải...
+    </div>
+</div>
+
+<script>
+    let gameState = {
+        case_id: "",
+        title: "",
+        dossier: null,
+        total_questions: 0,
+        current_q_index: 0,
+        current_question_text: "",
+        sanity: 100,
+        activeTab: 1
+    };
+
+    async function initGame() {
+        try {
+            let res = await fetch('/api/new-game');
+            let data = await res.json();
+            gameState.case_id = data.case_id;
+            gameState.title = data.title;
+            gameState.dossier = data.dossier;
+            gameState.total_questions = data.total_questions;
+            gameState.current_q_index = data.question_index;
+            gameState.current_question_text = data.first_question;
+
+            renderDossier();
+            renderDialogueInit();
+            updateStats();
+        } catch (err) {
+            document.getElementById('screen-dossier').innerText = "LỖI: Không thể kết nối tới Backend FastAPI trên Vercel!";
+        }
+    }
+
+    function switchTab(tabNum) {
+        gameState.activeTab = tabNum;
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-btn')[tabNum - 1].classList.add('active');
+
+        if (tabNum === 1) {
+            document.getElementById('screen-dossier').style.display = 'block';
+            document.getElementById('screen-dialogue').style.display = 'none';
+            document.getElementById('input-container').style.display = 'none';
+        } else {
+            document.getElementById('screen-dossier').style.display = 'none';
+            document.getElementById('screen-dialogue').style.display = 'block';
+            document.getElementById('input-container').style.display = 'flex';
+            document.getElementById('command-input').focus();
+        }
+    }
+
+    function renderDossier() {
+        let d = gameState.dossier;
+        let text = `=== BỘ HỒ SƠ: ${gameState.title.toUpperCase()} ===\n\n`;
+        text += `[NẠN NHÂN]: ${d.victim}\n`;
+        text += `[THỜI GIAN TỬ VONG]: ${d.time_of_death}\n`;
+        text += `[HIỆN TRƯỜNG]: ${d.evidence}\n\n`;
+        text += `[CÁC NGHI PHẠM]:\n`;
+        d.suspects.forEach((s, i) => {
+            text += `  ${i+1}. ${s.name}\n     - Lời khai: "${s.statement}"\n     - Điểm khả nghi: ${s.flaw}\n`;
+        });
+        text += `\n----------------------------------------------------\n`;
+        text += `[GHI CHÚ HỆ THỐNG]: Hãy ghi nhớ kỹ dữ liệu trên trước khi chuyển sang mục [2] Đấu Trí.`;
+        document.getElementById('screen-dossier').innerText = text;
+    }
+
+    function renderDialogueInit() {
+        let text = `SYSTEM: Kết nối chuỗi thần kinh thành công.\n`;
+        text += `SYSTEM: Phân vùng hồ sơ đã bị khóa. Hãy trả lời câu hỏi sau đây từ Hệ thống:\n\n`;
+        text += `SYSTEM: [CÂU HỎI ${gameState.current_q_index + 1}] ${gameState.current_question_text}`;
+        document.getElementById('screen-dialogue').innerText = text;
+    }
+
+    function updateStats() {
+        let bars = Math.round(gameState.sanity / 10);
+        let barStr = '█'.repeat(bars) + '-'.repeat(10 - bars);
+        document.getElementById('stats-display').innerText = `SANITY: [${barStr}] ${gameState.sanity}% | VỤ ÁN: ${gameState.title}`;
+    }
+
+    document.getElementById('command-input').addEventListener('keypress', async function (e) {
+        if (e.key === 'Enter') {
+            let val = this.value.trim();
+            if (!val) return;
+            this.value = '';
+
+            let diag = document.getElementById('screen-dialogue');
+            diag.innerText += `\n\nUSER_INPUT> ${val}\n`;
+
+            if (val.toLowerCase() === 'help') {
+                diag.innerText += `SYSTEM: CÁC LỆNH HỆ THỐNG:\n- Gõ trực tiếp câu trả lời để gửi cho Hệ thống.\n- Chuyển lại tab [1] để xem hồ sơ (có thể bị thao túng tâm lý).\n`;
+                diag.scrollTop = diag.scrollHeight;
+                return;
+            }
+
+            // Gửi dữ liệu lên API FastAPI
+            try {
+                let res = await fetch('/api/verify', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        case_id: gameState.case_id,
+                        question_index: gameState.current_q_index,
+                        user_answer: val,
+                        sanity: gameState.sanity
+                    })
+                });
+                let data = await res.json();
+
+                gameState.sanity = Math.max(0, Math.min(100, gameState.sanity + data.sanity_change));
+                updateStats();
+
+                diag.innerText += `\n${data.output}\n`;
+
+                if (gameState.sanity <= 0) {
+                    diag.innerText += `\nSYSTEM: [CRITICAL ERROR] THANH TỈNH TÁO ĐÃ CẠN KIỆT. NÃO BỘ BỊ XÓA HOÀN TOÀN (0x00). GAME OVER.`;
+                    document.getElementById('input-container').style.display = 'none';
+                    return;
+                }
+
+                if (data.correct) {
+                    gameState.current_q_index++;
+                    if (gameState.current_q_index < gameState.total_questions) {
+                        // Lấy câu hỏi tiếp theo (trong demo này có 2 câu)
+                        // Có thể mở rộng lấy câu hỏi tiếp theo từ backend
+                        diag.innerText += `\nSYSTEM: Chuyển sang chuỗi ký ức tiếp theo...`;
+                    } else {
+                        diag.innerText += `\nSYSTEM: [MISSION COMPLETE] Bạn đã khôi phục toàn bộ ký ức thành công và minh oan cho bản thân!`;
+                        document.getElementById('input-container').style.display = 'none';
+                    }
+                }
+
+                diag.scrollTop = diag.scrollHeight;
+            } catch (err) {
+                diag.innerText += `\nSYSTEM: Lỗi truyền tải dữ liệu tới Serverless Backend.`;
+            }
+        }
+    });
+
+    window.onload = initGame;
+</script>
+
+</body>
+</html>

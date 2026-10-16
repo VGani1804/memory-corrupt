@@ -1,0 +1,298 @@
+[
+  {
+    "case_id": "CASE_01",
+    "title": "Vụ Án Biệt Thự Blackwood",
+    "dossier": {
+      "victim": "Lord Arthur Blackwood (62 tuổi) - Bị siết cổ tử vong.",
+      "time_of_death": "Từ 22:30 PM đến 23:15 PM.",
+      "evidence": "Ly rượu vang vỡ chứa Kali Cyanua, đồng hồ bỏ túi hỏng dừng ở mốc 22:45 PM.",
+      "suspects": [
+        {"name": "Julian (Bác sĩ)", "statement": "Ở phòng thuốc từ 22:30, nghe tiếng vỡ lúc 23:00.", "flaw": "Áo dính vệt rượu vang."},
+        {"name": "Thomas (Quản gia)", "statement": "Mang rượu lên lúc 22:15 rồi xuống hầm đến 23:30.", "flaw": "Đế giày dính vệt máu đông."},
+        {"name": "Bệnh nhân 73 (Bạn)", "statement": "Khai đã rời đi lúc 21:00 bằng xe riêng.", "flaw": "Chìa khóa xe nằm dưới gầm bàn nạn nhân."}
+      ]
+    },
+    "questions": [
+      {
+        "q_id": 1,
+        "question": "Lời khai của Quản gia Thomas nói mang rượu lên lúc 22:15. Chi tiết nào ở hiện trường chứng minh có xô xát sau đó?",
+        "keywords": ["siết cổ", "cyanua", "22:45", "đồng hồ", "vỡ"],
+        "truth_response": "Đúng vậy. Đồng hồ vỡ lúc 22:45 PM và vết siết cổ cho thấy án mạng diễn ra muộn hơn thời điểm mang rượu.",
+        "gaslight_bluffs": [
+          "Đó là điều hồ sơ ghi... Nhưng ngươi có chắc chính tay Thomas làm vỡ chiếc đồng hồ, hay ngươi đã cố tình vặn kim lại để ngụy tạo thời gian?",
+          "Thomas nói dối, nhưng ngươi cũng vậy. Vệt máu dưới giày Thomas... ngươi có chắc đó không phải là máu dính từ ngón tay ngươi sang khi hai người giằng co?",
+          "Ngươi tập trung vào ly rượu vỡ làm gì? Ngươi biết rõ chất độc Cyanua không đủ liều, nên mới phải tự tay siết cổ ông ta mà?"
+        ],
+        "wrong_response": "Sai hoàn toàn! Mày đang cố lái sự chú ý sang hướng khác để che giấu vết hằn sợi dây trên cổ tay chính mình."
+      },
+      {
+        "q_id": 2,
+        "question": "Chìa khóa xe riêng của ngươi được tìm thấy chính xác ở khu vực nào trong phòng nạn nhân?",
+        "keywords": ["gầm bàn", "dưới bàn", "bàn làm việc"],
+        "truth_response": "Chính xác, chìa khóa nằm dưới gầm bàn làm việc của nạn nhân.",
+        "gaslight_bluffs": [
+          "Nó nằm dưới bàn... đúng là chỗ ngươi đã đánh rơi nó khi giằng co siết cổ ngài Arthur.",
+          "Chìa khóa ở dưới bàn, nhưng ngươi có nhớ tại sao xe của ngươi lại được cắm sẵn chìa dự phòng ngoài cổng không? Ngươi đã định tẩu thoát đúng chứ?",
+          "Ngươi nghĩ ai đó đánh rơi chìa khóa để gài bẫy ngươi? Hay chính tiềm thức ngươi muốn để lại chứng cứ vì lòng tự trọng của một kẻ sát nhân?"
+        ],
+        "wrong_response": "Trí nhớ của ngươi đã hoàn toàn rỗng tuếch. Ngươi thực chất không hề rời đi lúc 21:00 như lời khai."
+      }
+    ]
+  },
+  {
+    "case_id": "CASE_02",
+    "title": "Cái Chết Trên Chuyến Tàu Đêm #404",
+    "dossier": {
+      "victim": "Nhà báo Elena Vance (34 tuổi) - Bị đâm từ phía sau bằng dao gọt hoa quả.",
+      "time_of_death": "02:15 AM (Thời điểm tàu đi qua hầm tối nghẽn sóng).",
+      "evidence": "Tách cà phê trên bàn còn bốc khói, vệt máu kéo dài từ toa số 2 sang toa hành lý.",
+      "suspects": [
+        {"name": "Marcus (Soát vé)", "statement": "Kiểm tra toa số 1 từ 02:00 đến 02:30 AM.", "flaw": "Tấm vé tàu rách dính máu trong túi áo."},
+        {"name": "Sophia (Hành khách)", "statement": "Ngủ suốt từ 00:00 AM đến khi tàu dừng.", "flaw": "Vạt váy dính vết cà phê đổ còn ướt."},
+        {"name": "Bệnh nhân 73 (Bạn)", "statement": "Khai ngồi một mình ở toa hàng hóa.", "flaw": "Cuốn sổ tay điều tra của Elena được tìm thấy trong cặp của bạn."}
+      ]
+    },
+    "questions": [
+      {
+        "q_id": 1,
+        "question": "Sophia khai đã ngủ từ midnight. Chi tiết nào trên trang phục vạch trần lời nói dối của cô ta?",
+        "keywords": ["váy", "cà phê", "vạt váy", "vết cà phê"],
+        "truth_response": "Đúng. Vết cà phê còn ướt trên váy chứng tỏ cô ta đã ở gần Elena lúc tách cà phê bị hất văng.",
+        "gaslight_bluffs": [
+          "Sophia nói dối về việc ngủ... Nhưng chính ngươi là người đã va vào cô ta khiến ly cà phê văng lên váy khi ngươi bỏ chạy khỏi nạn nhân đúng không?",
+          "Vết cà phê còn ướt, nhưng ngươi có chắc đó là của Sophia? Hay ngươi đang cố gán vệt ố đó cho cô ta để che giấu vết máu trên tay áo mình?",
+          "Ngươi đổ tội cho Sophia chỉ vì một vết bẩn? Ngươi có nhớ chính Elena đã cầu xin ngươi cứu cô ấy trước khi đèn trong hầm tắt không?"
+        ],
+        "wrong_response": "Sai rồi! Ngươi không hề quan sát kỹ hiện trường. Trí nhớ của ngươi đang tuột dốc không phanh."
+      },
+      {
+        "q_id": 2,
+        "question": "Vật chứng quan trọng nào của Elena lại xuất hiện bên trong hành lý của ngươi?",
+        "keywords": ["sổ tay", "cuốn sổ", "sổ điều tra"],
+        "truth_response": "Khớp dữ liệu. Cuốn sổ tay chứa bí mật của Elena nằm trong cặp của bạn.",
+        "gaslight_bluffs": [
+          "Ngươi lấy cuốn sổ để 'nghiên cứu'? Hay ngươi giết Elena chỉ để bịt đầu mối thông tin bị rò rỉ trong cuốn sổ đó?",
+          "Cuốn sổ nằm trong cặp ngươi. Ngươi có muốn ta đọc trang cuối cùng nơi cô ấy viết tên 'Kẻ đi theo tôi là Bệnh nhân 73' không?",
+          "Ngươi nghĩ Elena đưa cuốn sổ cho ngươi nhờ giữ hộ? Đừng tự lừa mình nữa, ngươi đã cướp nó từ tay một cái xác!"
+        ],
+        "wrong_response": "Quá thất vọng. Ngươi thậm chí không nhớ mình đã cất giấu thứ gì trong hành lý cá nhân."
+      }
+    ]
+  },
+  {
+    "case_id": "CASE_03",
+    "title": "Bí Ẩn Phòng Thu Âm Tầng Tối",
+    "dossier": {
+      "victim": "Ca sĩ Rock Roy (28 tuổi) - Ngạt thở do rò rỉ khí CO trong phòng cách âm.",
+      "time_of_death": "Khoảng 03:00 AM.",
+      "evidence": "Microphone vẫn bật ghi âm, băng từ bị cắt mất 4 phút (từ 02:56 đến 03:00 AM), cửa phòng thu bị khóa ngoài.",
+      "suspects": [
+        {"name": "Dave (Nhà sản xuất)", "statement": "Chỉnh âm ở phòng điều khiển ngoài từ 02:00 AM.", "flaw": "Tay dính vết băng keo cách điện vừa xé."},
+        {"name": "Bệnh nhân 73 (Bạn - Nhạc sĩ)", "statement": "Khai đã bỏ về nhà từ 02:00 AM vì cãi nhau.", "flaw": "Máy ghi âm cá nhân của bạn lưu phân tần giọng nói trùng với 4 phút bị cắt."}
+      ]
+    },
+    "questions": [
+      {
+        "q_id": 1,
+        "question": "Chi tiết nào ở hệ thống thu âm chứng minh cái chết của Roy không phải sự cố kỹ thuật ngẫu nhiên?",
+        "keywords": ["bắt băng", "cắt 4 phút", "bị cắt", "băng từ", "mất 4 phút"],
+        "truth_response": "Chính xác. Việc đoạn băng bị xóa thủ công đúng 4 phút chứng tỏ có hành vi xóa vết tích.",
+        "gaslight_bluffs": [
+          "Đoạn băng bị cắt... nhưng ngươi có biết tệp sao lưu trên máy tính của ngươi chứa đúng 4 phút tiếng Roy van xin mở cửa không?",
+          "Dave xé băng keo để dán ống khí, nhưng chính ngươi là người đã dùng quyền Admin để ấn lệnh XÓA đoạn băng đó lúc 03:01 AM!",
+          "Ngươi đổ cho 4 phút bị cắt? Thực ra không có phút nào bị xóa cả, chính bộ não ngươi đã tự cắt đoạn ký ức tàn nhẫn đó ra khỏi đầu!"
+        ],
+        "wrong_response": "Sai lầm nghiêm trọng! Ngươi đang bỏ qua bằng chứng vật lý rõ ràng nhất tại hiện trường."
+      }
+    ]
+  },
+  {
+    "case_id": "CASE_04",
+    "title": "Kịch Sĩ Đêm Trăng Xuyết",
+    "dossier": {
+      "victim": "Diễn viên kịch Genevieve (40 tuổi) - Tử vong do đạo cụ đao thật thay thế đao giả trên sân khấu.",
+      "time_of_death": "20:45 PM (Ngay cảnh diễn hạ màn).",
+      "evidence": "Thùng chứa đạo cụ bị phá khóa, găng tay nhung đen bỏ lại trong hòm trang phục.",
+      "suspects": [
+        {"name": "Clara (Thợ trang phục)", "statement": "Giúp diễn viên phụ thay đồ ở hậu đài suốt buổi diễn.", "flaw": "Trong túi vạt áo có chiếc chìa khóa vạn năng dính mỡ bảo quản kim loại."},
+        {"name": "Bệnh nhân 73 (Đạo diễn)", "statement": "Đứng ở bục điều khiển ánh sáng suốt vở kịch.", "flaw": "Dấu vân tay của bạn là dấu duy nhất bám trên chuôi thanh đao thật."}
+      ]
+    },
+    "questions": [
+      {
+        "q_id": 1,
+        "question": "Vật chứng nào trực tiếp liên kết dấu vết sinh học của ngươi với vũ khí gây án trên sân khấu?",
+        "keywords": ["vân tay", "chuôi đao", "dấu vân tay", "thanh đao"],
+        "truth_response": "Dữ liệu chính xác. Vân tay của bạn là vết tích duy nhất còn lại trên chuôi đao.",
+        "gaslight_bluffs": [
+          "Vân tay của ngươi trên chuôi đao... Ngươi định giải thích là 'vô tình kiểm tra đạo cụ' trước giờ diễn sao?",
+          "Clara có chìa khóa, nhưng chính tay ngươi mới là người trực tiếp trao thanh đao thật đó cho Genevieve với nụ cười bí hiểm!",
+          "Ngươi có chắc đó là vân tay của ngươi không? Hay thực chất ngươi đã ép Clara đeo găng tay rồi dàn dựng nên vụ tai nạn này?"
+        ],
+        "wrong_response": "Đáp án sai! Bằng chứng sinh học tố cáo ngươi rõ rành rành mà ngươi vẫn cố tình chối bỏ."
+      }
+    ]
+  },
+  {
+    "case_id": "CASE_05",
+    "title": "Án Mạng Trong Tháp Chuông Cổ",
+    "dossier": {
+      "victim": "Linh mục Gabriel (55 tuổi) - Rơi từ đỉnh tháp chuông xuống đất.",
+      "time_of_death": "12:00 Đúng giữa trưa.",
+      "evidence": "Sợi dây thừng kéo chuông bị cắt đứt 2/3, bãi nôn có chứa chất ức chế thần kinh dưới chân tháp.",
+      "suspects": [
+        {"name": "Kẻ gác chuông Benedict", "statement": "Rời tháp chuông đi ăn trưa từ 11:30 AM.", "flaw": "Bàn tay có vết hằn ma sát sợi dây thừng còn tươi."},
+        {"name": "Bệnh nhân 73 (Khách hành hương)", "statement": "Đang xưng tội trong buồng gỗ tầng 1.", "flaw": "Sợi dây gai trùng loại với dây chuông nằm trong măng-tô của bạn."}
+      ]
+    },
+    "questions": [
+      {
+        "q_id": 1,
+        "question": "Vật chứng nào giấu trong trang phục cá nhân biến bằng chứng ngoại phạm 'xưng tội' của ngươi thành dối trá?",
+        "keywords": ["dây gai", "sợi dây", "trong măng-tô", "dây thừng"],
+        "truth_response": "Xác nhận. Sợi dây gai dính vết cắt dứt khoát khớp hoàn toàn với đoạn dây thừng bị đứt trên đỉnh tháp.",
+        "gaslight_bluffs": [
+          "Ngươi giấu đoạn dây gai trong áo để làm gì? Để thay thế sợi dây đã đứt hay để siết cổ Gabriel trước khi đẩy ông ta xuống?",
+          "Benedict dính vết hằn do cố níu Gabriel lại, còn ngươi... ngươi chính là kẻ đã dùng dao cắt đứt sợi dây từ phía trên!",
+          "Ngươi bảo ngươi ở trong buồng xưng tội? Vậy tại sao bãi nôn chứa chất ức chế thần kinh dưới chân tháp lại dính vết giày của ngươi?"
+        ],
+        "wrong_response": "Ký ức của ngươi bị tháo gỡ hoàn toàn rồi. Ngươi không hề nhớ nổi thứ mình mang theo người!"
+      }
+    ]
+  },
+  {
+    "case_id": "CASE_06",
+    "title": "Cái Chết Dưới Đáy Hồ Băng",
+    "dossier": {
+      "victim": "Vận động viên trượt băng Nikolai (25 tuổi) - Bị chìm dưới lớp băng vỡ.",
+      "time_of_death": "18:00 PM.",
+      "evidence": "Lỗ hổng trên mặt băng bị đục bằng mũi khoan công nghiệp, chiếc đèn pin rọi văng gần bờ.",
+      "suspects": [
+        {"name": "Dmitri (Đối thủ)", "statement": "Tập luyện ở nhà thể chất từ 17:00 PM.", "flaw": "Mũi khoan dán nhãn tên Dmitri bỏ quên trong xô tuyết."},
+        {"name": "Bệnh nhân 73 (Huấn luyện viên)", "statement": "Ở trong phòng điều hành lau giày trượt.", "flaw": "Quần bống dính nước băng tan đến tận gối và vụn băng đập dính trên ống quần."}
+      ]
+    },
+    "questions": [
+      {
+        "q_id": 1,
+        "question": "Dấu vết trên trang phục của ngươi vạch trần việc ngươi từng đứng trực tiếp ngoài mặt hồ băng lúc sự cố diễn ra?",
+        "keywords": ["quần", "nước băng", "vụn băng", "ướt gối", "ống quần"],
+        "truth_response": "Chính xác. Nước đóng băng dính gối chứng tỏ bạn đã quỳ xuống mặt băng ngấm nước.",
+        "gaslight_bluffs": [
+          "Ngươi quỳ xuống mặt băng... để cứu Nikolai hay để ấn đầu cậu ta xuống dòng nước lạnh giá đó sâu hơn?",
+          "Dmitri bỏ lại mũi khoan, nhưng chính ngươi mới là kẻ dụ Nikolai trượt vào vùng băng mỏng đã đục sẵn!",
+          "Lau giày trong phòng ấm mà quần ướt sũng đến gối? Sự dối trá này vụng về đến mức chính bộ não ngươi cũng muốn chối bỏ!"
+        ],
+        "wrong_response": "Không đúng! Ngươi đang lờ đi dấu vết ẩm ướt tố cáo hành vi thực sự của mình."
+      }
+    ]
+  },
+  {
+    "case_id": "CASE_07",
+    "title": "Bí Ẩn Hầm Rượu Vang Dinh Biệt",
+    "dossier": {
+      "victim": "Mô-ngược rượu Vang Philippe (50 tuổi) - Bị đập đầu bằng chai rượu quý cổ.",
+      "time_of_death": "21:00 PM.",
+      "evidence": "Chai rượu 1945 vỡ nát, chìa khóa hầm rượu duy nhất nằm bên trong túi áo nạn nhân.",
+      "suspects": [
+        {"name": "Céleste (Cháu gái)", "statement": "Đã lên phòng ngủ từ 20:30 PM.", "flaw": "Vết rượu vang đỏ bắn thành giọt nhỏ dán trên mu bàn tay."},
+        {"name": "Bệnh nhân 73 (Chủ nợ)", "statement": "Chờ ở phòng khách tầng 1 cả tối.", "flaw": "Khóa cửa hầm rượu bị chèn bằng chiếc ô màu đen của bạn từ bên ngoài."}
+      ]
+    },
+    "questions": [
+      {
+        "q_id": 1,
+        "question": "Vật dụng cá nhân nào của ngươi được dùng để biến hầm rượu thành căn phòng kín giam giữ nạn nhân?",
+        "keywords": ["chiếc ô", "cái ô", "ô đen", "cây ô"],
+        "truth_response": "Khớp dữ liệu. Chiếc ô màu đen được chèn ngang tay cầm để khóa cứng cửa từ bên ngoài.",
+        "gaslight_bluffs": [
+          "Ngươi chèn ô vào cửa để Philippe không thể thoát ra sau khi bị đập đầu, đúng chứ?",
+          "Céleste dính vết rượu vì giằng co, nhưng chính chiếc ô của ngươi đã khóa chặt đường sống duy nhất của ông ta!",
+          "Ngươi nói ngươi ngồi ở phòng khách? Vậy tại sao chiếc ô ướt sũng của ngươi lại nằm chèn ở cửa hầm rượu dưới lòng đất?"
+        ],
+        "wrong_response": "Thất bại. Ngươi không thể nhớ ra vật dụng tùy thân mang tính quyết định của vụ án."
+      }
+    ]
+  },
+  {
+    "case_id": "CASE_08",
+    "title": "Cái Chết Phòng Hóa Học B-12",
+    "dossier": {
+      "victim": "GS. Hóa học Henderson (58 tuổi) - Đầu độc bằng khí Axit Cyanhydric.",
+      "time_of_death": "14:20 PM.",
+      "evidence": "Ống nghiệm bị đập vỡ, quạt thông gió bị vặn ngược chiều, mặt nạ phòng độc bị tháo lớp lọc.",
+      "suspects": [
+        {"name": "Trợ lý Alan", "statement": "Đi lấy hóa chất ở kho tầng trệt từ 14:00 PM.", "flaw": "Mặt nạ phòng độc trong cặp Alan bị mất đúng màng lọc hóa chất."},
+        {"name": "Bệnh nhân 73 (Nghiên cứu sinh)", "statement": "Làm thí nghiệm ở dãy bàn đối diện.", "flaw": "Bàn tay có vết bỏng hóa chất tươi dạng giọt bắn bám trên ngón trỏ."}
+      ]
+    },
+    "questions": [
+      {
+        "q_id": 1,
+        "question": "Dấu vết tổn thương thể chất nào trên bàn tay vạch trần việc ngươi trực tiếp thao tác với hóa chất độc hại gây án?",
+        "keywords": ["bỏng", "vết bỏng", "bỏng hóa chất", "ngón trỏ"],
+        "truth_response": "Đúng. Vết bỏng hóa chất ở ngón trỏ chứng minh sự cố tràn hóa chất xảy ra ngay trước mặt bạn.",
+        "gaslight_bluffs": [
+          "Vết bỏng do ngươi cố tình đập vỡ ống nghiệm chứa độc để ám sát Giáo sư, đúng không?",
+          "Alan tháo màng lọc, nhưng chính bàn tay bị bỏng của ngươi đã bật ngược quạt thông gió để khí độc xả thẳng vào mặt Henderson!",
+          "Ngươi nói làm thí nghiệm đối diện? Vết bỏng này là do phản ứng nhiệt khi ngươi tự tay pha chế chất độc đó!"
+        ],
+        "wrong_response": "Trả lời sai! Cơn đau từ vết bỏng trên ngón tay mà ngươi cũng quên được sao?"
+      }
+    ]
+  },
+  {
+    "case_id": "CASE_09",
+    "title": "Án Mạng Đêm Viễn Đông",
+    "dossier": {
+      "victim": "Thương gia Chang (45 tuổi) - Bị đâm bằng đâm cắm sâu vào ngực.",
+      "time_of_death": "23:00 PM.",
+      "evidence": "Tấm bình phong bị xé rách, chiếc quạt giấy xòe dính máu đặt trên bàn trà.",
+      "suspects": [
+        {"name": "Vũ công Mối", "statement": "Múa phục vụ ở sảnh chính từ 22:30 PM.", "flaw": "Móng tay giả bị gãy dính vải áo nạn nhân."},
+        {"name": "Bệnh nhân 73 (Đối tác làm ăn)", "statement": "Uống trà ở phòng bên cạnh.", "flaw": "Dấu vết máu dính trên viền tách trà của bạn chưa kịp khô."}
+      ]
+    },
+    "questions": [
+      {
+        "q_id": 1,
+        "question": "Chi tiết nào trên đồ dùng uống trà của ngươi chứng minh ngươi đã tiếp xúc với máu nạn nhân trước khi quay về phòng?",
+        "keywords": ["tách trà", "viền tách", "máu viền", "dính máu"],
+        "truth_response": "Xác nhận. Máu dính trên viền tách trà tố cáo bạn đã cầm tách trà khi tay còn bám máu.",
+        "gaslight_bluffs": [
+          "Vết máu trên tách trà... Ngươi đã thản nhiên ngồi uống trà sau khi đâm chết Chang đúng chứ?",
+          "Vũ công gãy móng tay vì tự vệ, còn ngươi dính máu rồi thản nhiên quay về phòng lau dao vào khăn trà!",
+          "Ngươi nghĩ ai đó quết máu lên tách trà của ngươi? Hay chính tay ngươi run rẩy làm sánh trà lẫn máu vào nhau?"
+        ],
+        "wrong_response": "Không chính xác. Ngươi bỏ qua vật chứng mang tính quyết định ngay trước mắt."
+      }
+    ]
+  },
+  {
+    "case_id": "CASE_10",
+    "title": "Bí Ẩn Tàu Du Thuyền Neptune",
+    "dossier": {
+      "victim": "Thuyền trưởng Vance (50 tuổi) - Bị đẩy ngã từ đài quan sát xuống mạn tàu.",
+      "time_of_death": "04:00 AM.",
+      "evidence": "Lan can bảo vệ bị nới lỏng ốc vít, chiếc kính thiên văn bị lệch hướng 45 độ.",
+      "suspects": [
+        {"name": "Thuyền phó Ross", "statement": "Trực ở phòng máy tầng hầm.", "flaw": "Cờ-lê trong túi quần dính mỡ máy và đúng cỡ ốc lan can."},
+        {"name": "Bệnh nhân 73 (Bác sĩ tàu)", "statement": "Ngủ ở cabin số 4.", "flaw": "Nút áo blouse của bạn bị đứt văng ngay dưới chân đài quan sát."}
+      ]
+    },
+    "questions": [
+      {
+        "q_id": 1,
+        "question": "Phụ kiện trang phục nào của ngươi rơi lại hiện trường đài quan sát vạch trần bằng chứng ngoại phạm 'đang ngủ'?",
+        "keywords": ["nút áo", "cúc áo", "nút blouse", "áo blouse"],
+        "truth_response": "Đúng. Nút áo blouse của bạn bị đứt rơi ngay vị trí nới lỏng lan can.",
+        "gaslight_bluffs": [
+          "Nút áo đứt ngay đài quan sát... Ngươi đã giằng co với Thuyền trưởng trước khi đẩy ông ta rớt xuống biển đúng không?",
+          "Ross vặn ốc, nhưng chính ngươi mới là kẻ dụ Thuyền trưởng tựa vào lan can đã nới lỏng!",
+          "Ngươi bảo ngủ ở cabin 4? Vậy chiếc áo blouse mất một cúc đang giấu dưới đệm giường ngươi giải thích sao?"
+        ],
+        "wrong_response": "Rất tiếc! Ngươi đã hoàn toàn quên mất phụ kiện cá nhân bị bỏ lại tại hiện trường vụ án."
+      }
+    ]
+  }
+]
